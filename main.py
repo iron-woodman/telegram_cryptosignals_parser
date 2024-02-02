@@ -13,6 +13,9 @@ api_hash = os.getenv('api_hash')
 bot_token = os.getenv('bot_token')
 source_channel_id = int(os.getenv('source_channel_id'))
 destination_channel_id = int(os.getenv('destination_channel_id'))
+# # test
+# source_channel_id=-1002003304823
+# destination_channel_id=-1001931294008
 
 
 logging.basicConfig(level=logging.INFO, filename='app.log', format='%(asctime)s %(levelname)s:%(message)s')
