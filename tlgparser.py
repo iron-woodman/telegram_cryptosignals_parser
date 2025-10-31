@@ -115,9 +115,9 @@ class Signal:
 
         new_signal = \
             f'{self.signal_icon()} {self.signal_type}: {self.symbol}/USDT\n❗️Лот: max 0.33% от депозита.' + \
-            f'\n🎯Цели: {self.take_profits[0]} (20%) >> {self.take_profits[1]} (20%) >>' \
-            f' {self.take_profits[2]} (20%) >> {self.take_profits[3]} (20%) >>' \
-            f' {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}'
+            f'\n🎯Цели:\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
+            f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
+            f'\n5) {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}'
 
         return new_signal
 
