@@ -128,7 +128,7 @@ class Signal:
             f'\n🎯Цели:\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
             f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
             f'\n5) {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}' \
-            f'\n >{self.escape_markdown(self.disclaimer)}'
+            f'\n > {self.escape_markdown(self.disclaimer)}'
 
 
 

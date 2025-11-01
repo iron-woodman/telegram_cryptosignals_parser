@@ -1,8 +1,10 @@
 from telethon import TelegramClient, events
+from telethon.tl.types import ParseMode # Импортируем ParseMode из telethon
 import logging
 import os
 from dotenv import load_dotenv
 from tlgparser import Signal
+
 
 
 # load environment variables
@@ -24,7 +26,7 @@ client = TelegramClient('bot_session', api_id, api_hash).start(bot_token=bot_tok
 
 async def send_mess(message):
     try:
-        await client.send_message(entity=destination_channel_id, message=message)
+        await client.send_message(entity=destination_channel_id, message=message,  parse_mode='markdown')
         logging.info(f"New signal sent to tlg")
     except Exception as e:
         subject = getattr(e, 'message', '')
