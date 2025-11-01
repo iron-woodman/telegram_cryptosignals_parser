@@ -13,6 +13,8 @@ class Signal:
         self.signal_type = ''
         self.take_profits = []
         self.side = '' # BUY OR SELL
+        self.disclaimer = f'Информация, содержащаяся в данном сообщении, не является и не должна рассматриваться'\
+         f' как инвестиционная рекомендация в соответствии с Федеральным законом «О рынке ценных бумаг».'
 
     def get_binance_symbol(self):
         if self.symbol is not None:
@@ -20,6 +22,14 @@ class Signal:
 
     def get_entry(self):
         return self.entries
+
+    def escape_markdown(self, text: str) -> str:
+        """
+        Экранирует специальные символы MarkdownV2.
+        """
+        markdown_chars = r'_*[]()~`>#+-=|{}.!'
+        escaped_text = ''.join([f'\{char}' if char in markdown_chars else char for char in text])
+        return escaped_text
 
     def get_stop_loss(self):
         return self.stop_loss
@@ -117,7 +127,12 @@ class Signal:
             f'{self.signal_icon()} {self.signal_type}: {self.symbol}/USDT\n❗️Лот: max 0.33% от депозита.' + \
             f'\n🎯Цели:\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
             f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
-            f'\n5) {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}'
+            f'\n5) {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}' \
+            f'\n >{self.escape_markdown(self.disclaimer)}'
+
+
+
+
 
         return new_signal
 
