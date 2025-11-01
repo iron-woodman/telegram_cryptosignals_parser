@@ -13,8 +13,8 @@ class Signal:
         self.signal_type = ''
         self.take_profits = []
         self.side = '' # BUY OR SELL
-        self.disclaimer = f'Информация, содержащаяся в данном сообщении, не является и не должна рассматриваться'\
-         f' как инвестиционная рекомендация в соответствии с Федеральным законом «О рынке ценных бумаг».'
+        self.disclaimer = f'<i>> Информация, содержащаяся в данном сообщении, не является и не должна рассматриваться'\
+         f' как инвестиционная рекомендация в соответствии с Федеральным законом «О рынке ценных бумаг».</i>'
 
     def get_binance_symbol(self):
         if self.symbol is not None:
@@ -128,9 +128,7 @@ class Signal:
             f'\n🎯Цели:\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
             f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
             f'\n5) {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}' \
-            f'\n > {self.escape_markdown(self.disclaimer)}'
-
-
+            f'\n\n{self.disclaimer}'
 
 
 
