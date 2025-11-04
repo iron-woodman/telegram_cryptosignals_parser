@@ -13,8 +13,8 @@ class Signal:
         self.signal_type = ''
         self.take_profits = []
         self.side = '' # BUY OR SELL
-        self.disclaimer = f'<i>> Информация, содержащаяся в данном сообщении, не является и не должна рассматриваться'\
-         f' как инвестиционная рекомендация в соответствии с Федеральным законом «О рынке ценных бумаг».</i>'
+        self.disclaimer = f'Информация, содержащаяся в данном сообщении, не является и не должна рассматриваться'\
+         f' как инвестиционная рекомендация в соответствии с Федеральным законом «О рынке ценных бумаг».'
 
     def get_binance_symbol(self):
         if self.symbol is not None:
@@ -124,13 +124,11 @@ class Signal:
         self.stop_loss = self.rnd_e(self.entry_target, 0.11, 0.115)
 
         new_signal = \
-            f'{self.signal_icon()} {self.signal_type}: {self.symbol}/USDT\n❗️Лот: max 0.33% от депозита.' + \
-            f'\n🎯Цели:\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
+            f'<b>{self.signal_icon()} {self.signal_type}: {self.symbol}/USDT</b>\n❗️<b>Лот:</b> max 0.33% от депозита.' + \
+            f'\n🎯<b>Цели:</b>\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
             f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
-            f'\n5) {self.take_profits[4]} (20%).\n⛔️Стоп: {self.stop_loss}' \
-            f'\n\n{self.disclaimer}'
-
-
+            f'\n5) {self.take_profits[4]} (20%).\n⛔️<b>Стоп:</b> {self.stop_loss}' \
+            f'\n\n<blockquote>{self.disclaimer}</blockquote>'
 
         return new_signal
 

@@ -14,7 +14,7 @@ bot_token = os.getenv('bot_token')
 destination_channel_id = int(os.getenv('destination_channel_id'))
 
 # Создание тестового сигнала
-test_signal_text = "BTC/USDT\nLONG\n65000.0"
+test_signal_text = "BTC\nLONG\n65000.0"
 
 async def main():
     # Инициализация клиента Telegram
@@ -33,7 +33,7 @@ async def main():
             print(new_signal_message)
 
             # Отправка сообщения
-            await client.send_message(destination_channel_id, new_signal_message)
+            await client.send_message(destination_channel_id, new_signal_message,   parse_mode='html')
             print(f"Тестовое сообщение успешно отправлено в канал {destination_channel_id}")
         else:
             print("Не удалось обработать тестовый сигнал.")
