@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from tlgparser import Signal
 
 
-
 # load environment variables
 load_dotenv()
 

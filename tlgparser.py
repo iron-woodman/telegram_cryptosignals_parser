@@ -123,12 +123,28 @@ class Signal:
 
         self.stop_loss = self.rnd_e(self.entry_target, 0.11, 0.115)
 
-        new_signal = \
-            f'<b>{self.signal_icon()} {self.signal_type}: {self.symbol}/USDT</b>\n❗️<b>Лот:</b> max 0.33% от депозита.' + \
-            f'\n🎯<b>Цели:</b>\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
-            f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
-            f'\n5) {self.take_profits[4]} (20%).\n⛔️<b>Стоп:</b> {self.stop_loss}' \
-            f'\n\n<blockquote>{self.disclaimer}</blockquote>'
+        # new_signal = \
+        #     f'<b>{self.signal_icon()} {self.signal_type}: {self.symbol}/USDT</b>\n❗️<b>Лот:</b> max 0.33% от депозита.' + \
+        #     f'\n🎯<b>Цели:</b>\n1) {self.take_profits[0]} (20%)\n2) {self.take_profits[1]} (20%)' \
+        #     f'\n3) {self.take_profits[2]} (20%)\n4) {self.take_profits[3]} (20%)' \
+        #     f'\n5) {self.take_profits[4]} (20%).\n⛔️<b>Стоп:</b> {self.stop_loss}' \
+        #     f'\n\n<blockquote>{self.disclaimer}</blockquote>'
+
+        # Заголовок
+        new_signal = (
+            f'🚀 <b>#{self.symbol}/USDT [{self.signal_type}]</b> {self.signal_icon()}\n\n'
+            f'🎯 <b>Take-Profit:</b>\n'
+            f'1) {self.take_profits[0]} (20%)\n'
+            f'2) {self.take_profits[1]} (20%)\n'
+            f'3) {self.take_profits[2]} (20%)\n'
+            f'4) {self.take_profits[3]} (20%)\n'
+            f'5) {self.take_profits[4]} (20%)\n\n'
+            f'⛔ <b>Stop-loss:</b> {self.stop_loss}\n\n'
+            f'❗ Точка входа: до достижения 1 цели.\n'
+            f'❗ Риск-менеджмент: не более 0.33% депозита на одну сделку.\n\n'
+            f'🐋 Ecosystem x10: @valcapital\n'
+            f'<blockquote>{self.disclaimer}</blockquote>'
+        )
 
         return new_signal
 
