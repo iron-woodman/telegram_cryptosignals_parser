@@ -28,7 +28,7 @@ class Signal:
         Экранирует специальные символы MarkdownV2.
         """
         markdown_chars = r'_*[]()~`>#+-=|{}.!'
-        escaped_text = ''.join([f'\{char}' if char in markdown_chars else char for char in text])
+        escaped_text = ''.join([f'\\{char}' if char in markdown_chars else char for char in text])
         return escaped_text
 
     def get_stop_loss(self):
